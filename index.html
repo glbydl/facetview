@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8" />
+        
+        <title>FacetView</title>
+        
+        <link rel="stylesheet" href="css/facetview.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css">
+        
+        <style>
+			.btn {
+				background: #3498db;
+				background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+				background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+				background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+				background-image: -o-linear-gradient(top, #3498db, #2980b9);
+				background-image: linear-gradient(to bottom, #3498db, #2980b9);
+				-webkit-border-radius: 28;
+				-moz-border-radius: 28;
+				border-radius: 28px;
+				font-family: Arial;
+				color: #ffffff;
+				font-size: 20px;
+				padding: 10px 20px 10px 20px;
+				text-decoration: none;
+			}
+
+			.btn:hover {
+				background: #3cb0fd;
+				background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+				text-decoration: none;
+			}
+			
+			.container {
+			    text-align: center;
+			}
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">FacetView</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <div class="facet-view-simple">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="myjavascript.js"></script>
+        <script type="text/javascript" src="vendor/jquery/1.7.1/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="vendor/linkify/1.0/jquery.linkify-1.0-min.js"></script>
+        <script type="text/javascript" src="vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js"></script>
+        <script type="text/javascript" src="jquery.facetview.js"></script>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('.facet-view-simple').facetview({
+                    search_url : 'http://localhost:8983/solr/collection1/select?',
+                    search_index : 'solr',
+                    datatype : 'json',
+                    paging : {
+                        from : 0,
+                        size : 10
+                    }
+                });
+
+            });
+            /*
+             * facets : [{
+                        "field" : "state",
+                        "display" : "state"
+                    }],
+               ,
+                    default_operator : "AND",
+                    default_freetext_fuzzify : "*"
+             */
+        </script>
+        
+    </body>
+</html>

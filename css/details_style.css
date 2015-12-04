@@ -1,0 +1,20 @@
+.outline {
+	text-align: left;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	width: 50%;
+	border: solid 3px #808080;
+	border-radius: 25px;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	text-align: center;
+	width: 50%;
+	height: 50%;
+}

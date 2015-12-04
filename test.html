@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>abc</title>
+    </head>
+    <body>
+        <a href="#" onclick="openAlert('<html><body><p>abc</p></body></html>')">Link</a>
+        <script type="text/javascript">
+            function openAlert(str) {
+                window.open("", "_blank").document.write(str);
+            }
+        </script>
+    </body>
+</html>
