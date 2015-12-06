@@ -1017,7 +1017,7 @@ search box - the end user will not know they are happening.
         }
         
         function createIndividualResult(value) {
-        	var strHrefHead = "http://localhost/details.php?";
+        	var strHrefHead = "http://www-scf.usc.edu/~wang787/details.php?";
         	var strHrefBody = "";
         	strHrefBody += "imageUrl=" + value.imageUrl + "&";
         	strHrefBody += "title=" + encodeURIComponent(value.title) + "&";
@@ -1029,7 +1029,7 @@ search box - the end user will not know they are happening.
         	var strHref = strHrefHead + strHrefBody;
         	var strResult = "";
         	strResult += "<tr><td>";
-        	strResult += "<b class='titleLink'><a href='" + strHref + "'>" + value.title + "</a></b> in " + value.location + "<br />";
+        	strResult += "<b class='titleLink'><a href='" + strHref + "' target='_blank'>" + value.title + "</a></b> in " + value.location + "<br />";
             strResult += value.description + "</td></tr>";
             console.log(strResult);
             $('#facetview_results', obj).append(strResult);
@@ -1269,6 +1269,7 @@ search box - the end user will not know they are happening.
             
             // ★
             qrystr = solrsearchquery();
+            console.log(options.search_url + qrystr);
             
             //}
             // augment the URL bar if possible
@@ -1278,7 +1279,7 @@ search box - the end user will not know they are happening.
             // };
             $.ajax({ 
               type: "get", 
-              url: options.search_url + solrsearchquery(), 
+              url: options.search_url + qrystr, 
               dataType:options.datatype, 
               jsonp:"json.wrf", 
               success: function(data) {                 
@@ -1440,9 +1441,14 @@ search box - the end user will not know they are happening.
             <a class="btn btn-default facetview_learnmore" title="click to view search help information" href="#"><b>?</b></a>\
             <a class="btn btn-default facetview_howmany" title="change result set size" href="#">{{HOW_MANY}}</a>';
         */
-        thefacetview += '<div class="btn-group custom"> \
+        thefacetview += '<br /><div class="btn-group custom"> \
         	<a class="btn btn-default" title="clear all search settings and start again" href="">Clear All</a> \
-        	<a class="btn btn-default facetview_howmany" title="change result set size" href="#">{{HOW_MANY}}</a>';
+        	<a class="btn btn-default facetview_howmany" title="change result set size" href="#">{{HOW_MANY}}</a> \
+        	<a class="btn btn-default" href="d3image.html" target="_blank">D3 Image</a> \
+        	<a class="btn btn-default" href="http://localhost:8983/solr/banana/src/index.html#/dashboard" target="_blank">Banana</a> \
+        	<a class="btn btn-default" href="distributionMap.html" target="_blank">Map</a>';
+        
+        
         if ( options.search_sortby.length > 0 ) {
             thefacetview += '<a class="btn btn-sm facetview_order" title="current order descending. Click to change to ascending" \
                 href="desc"><i class="glyphicon glyphicon-arrow-down"></i></a>';
